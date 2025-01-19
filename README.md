@@ -6,7 +6,7 @@ Este proyecto compara el rendimiento de dos bases de datos NoSQL, MongoDB y Neo4
 - [Escenario de Pruebas](#escenario-de-pruebas)
 - [Instrucciones de Uso](#instrucciones-de-uso)
 - [Resultados Esperados](#resultados-esperados)
-- [Ejecución de Pruebas](#ejecucion-de-pruebas)
+- [Ejecución de Pruebas](#ejecución-de-pruebas)
 - [Desarrolladores](#desarrolladores)
 
 # Escenario de Pruebas
@@ -27,22 +27,27 @@ El proyecto utiliza un modelo de datos basado en la industria del entretenimient
 
 1. Clona este repositorio:
 ```bash
-git clone https://github.com/tu_usuario/MovieDB-NoSQL-Benchmark.git
-cd MovieDB-NoSQL-Benchmark
+git clone https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2.git
+cd ITCR.BDAvanzados.Lab2
 ```
 
 2. Sigue las instrucciones específicas:
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/pics/mongoDB_logo.png" target="blank"><img src="docs/pics/mongoDB_logo.png" width="525" alt="mongoDB_logo" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb.md" target="blank"><img src="docs/pics/mongoDB_logo.png" width="450" alt="mongoDB_logo" /></a>
+  <br>
+  <em>👆 Presiona sobre la imagen para ver la guía de instalación y configuración de MongoDB</em>
 </p>
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/pics/neo4j_logo.png" target="blank"><img src="docs/pics/neo4j_logo.png" width="525" alt="neo4j_logo.png" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j.md" target="blank"><img src="docs/pics/neo4j_logo.png" width="400" alt="neo4j_logo.png" /></a>
+  <br>
+  <em>👆 Presiona sobre la imagen para ver la guía de instalación y configuración de Neo4j</em>
 </p>
 
-- MongoDB: `docs/mongodb.md`
-- Neo4j: `docs/neo4j.md`
+También puedes acceder a las guías directamente a través de estos enlaces:
+- [MongoDB](docs/mongodb.md)
+- [Neo4j](docs/neo4j.md)
 
 3. Genera los datos de prueba:
 ```bash
