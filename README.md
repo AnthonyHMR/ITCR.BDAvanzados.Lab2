@@ -6,8 +6,8 @@ Este proyecto compara el rendimiento de dos bases de datos NoSQL, MongoDB y Neo4
 - [Escenario de Pruebas](#escenario-de-pruebas)
 - [Instrucciones de Uso](#instrucciones-de-uso)
 - [Resultados Esperados](#resultados-esperados)
-- [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
+- [Ejecución de Pruebas](#ejecucion-de-pruebas)
+- [Desarrolladores](#desarrolladores)
 
 # Escenario de Pruebas
 El proyecto utiliza un modelo de datos basado en la industria del entretenimiento. Cada base de datos implementa un esquema adaptado a sus características únicas:
@@ -49,7 +49,7 @@ cd MovieDB-NoSQL-Benchmark
 python generate_data.py
 ```
 
-## Ejecución de Pruebas
+# Ejecución de Pruebas
 
 1. Asegúrate de que las bases de datos estén corriendo.
 
@@ -60,7 +60,7 @@ python run_tests.py
 
 3. Los resultados se guardarán en la carpeta `results`
 
-## Resultados Esperados
+# Resultados Esperados
 
 Este proyecto espera identificar:
 
