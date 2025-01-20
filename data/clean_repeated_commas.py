@@ -31,6 +31,6 @@ def clean_repeated_commas(input_file, output_file):
 
 # Ejemplo de uso
 if __name__ == "__main__":
-    input_file = "data/netflix_titles.csv"
-    output_file = "data/netflix_titles_clean.csv"
+    input_file = "data/disney_plus_titles.csv"
+    output_file = "data/disney_plus.csv"
     clean_repeated_commas(input_file, output_file)
