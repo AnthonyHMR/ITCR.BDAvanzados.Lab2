@@ -28,21 +28,21 @@ MongoDB es un sistema de base de datos NoSQL orientado a documentos, diseñado p
 
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/welcomeMongo.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/welcomeMongo.jpg" width="450" alt="welcomeMongo.jpg" /></a>
   <br>
 </p>
 
 3. Acepta el acuerdo de licencia
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/licenseAgreement.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/licenseAgreement.jpg" width="450" alt="licenseAgreement.jpg" /></a>
   <br>
 </p>
 
 4. Selecciona "Complete" como tipo de instalación
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/chooseCompleteSetUp.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/chooseCompleteSetUp.jpg" width="450" alt="chooseCompleteSetUp.jpg" /></a>
   <br>
 </p>
 
@@ -51,7 +51,7 @@ MongoDB es un sistema de base de datos NoSQL orientado a documentos, diseñado p
    * Esto permitirá que MongoDB se ejecute automáticamente al iniciar Windows
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongoDB_service.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongoDB_service.jpg" width="450" alt="mongoDB_service.jpg" /></a>
   <br>
 </p>
 
@@ -60,21 +60,21 @@ MongoDB es un sistema de base de datos NoSQL orientado a documentos, diseñado p
    * Compass facilitará la administración visual de tus bases de datos
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/installMongoCompass.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/installMongoCompass.jpg" width="450" alt="installMongoCompass.jpg" /></a>
   <br>
 </p>
 
 7. Inicia la instalación haciendo clic en "Install"
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/pressInstall.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/pressInstall.jpg" width="450" alt="pressInstall.jpg" /></a>
   <br>
 </p>
 
 8. Al finalizar, se abrirá MongoDB Compass automáticamente
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongodb_interface.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongodb_interface.jpg" width="450" alt="mongodb_interface.jpg" /></a>
   <br>
 </p>
 
@@ -91,7 +91,7 @@ MongoDB es un sistema de base de datos NoSQL orientado a documentos, diseñado p
 1. Navega hasta la carpeta extraída y accede al directorio `bin`
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/mongoshFile.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/mongoshFile.jpg" width="450" alt="mongoshFile.jpg" /></a>
   <br>
 </p>
 
@@ -101,7 +101,7 @@ MongoDB es un sistema de base de datos NoSQL orientado a documentos, diseñado p
    * Copia la ubicación del archivo
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/fileLocation.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/fileLocation.jpg" width="450" alt="fileLocation.jpg" /></a>
   <br>
 </p>
 
@@ -112,7 +112,7 @@ MongoDB es un sistema de base de datos NoSQL orientado a documentos, diseñado p
    * O accede desde Propiedades del Sistema → Configuración avanzada
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/systemProperties.jpg" width="400" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/systemProperties.jpg" width="400" alt="systemProperties.jpg" /></a>
   <br>
 </p>
 
@@ -121,7 +121,7 @@ MongoDB es un sistema de base de datos NoSQL orientado a documentos, diseñado p
    * Valor: [Ruta copiada anteriormente]
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/addEnvirontmentVariable.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/addEnvirontmentVariable.jpg" width="450" alt="addEnvirontmentVariable.jpg" /></a>
   <br>
 </p>
 
@@ -137,7 +137,7 @@ mongosh
 3. Deberías ver la siguiente pantalla de bienvenida:
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/mongoshConsole.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/mongodb/mongodb_guide/mongosh/mongoshConsole.jpg" width="1000" alt="mongoshConsole.jpg" /></a>
   <br>
 </p>
 
