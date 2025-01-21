@@ -95,3 +95,9 @@ Neo4j Desktop es una plataforma de base de datos orientada a grafos que permite 
 - [Documentación oficial de Neo4j](https://neo4j.com/docs/)
 - [Guía de inicio rápido](https://neo4j.com/developer/get-started/)
 - [Neo4j Community](https://community.neo4j.com/)
+
+Presionar en New para generar un nuevo proyecto. Por defecto este tiene el nombre de Project, pero usted lo modifica y le coloca una contraseña. 
+Presionar en start
+Luego vaya a los tres puntos, presiona en Open folder y luego en import
+Ahí agrega el archivo .csv
+
