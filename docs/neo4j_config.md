@@ -3,7 +3,7 @@
 ## Requisitos Previos
 
 * Neo4j Desktop instalado
-* Archivo `netflix_disney.csv` descargado
+* Archivo [netflix_disney.csv](https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/data/netflix_disney.csv) descargado
 * Permisos de administrador en tu sistema
 
 ## Pasos de Configuración
@@ -143,7 +143,7 @@ CALL apoc.periodic.iterate(
 Una vez completada la importación, deberías ver un mensaje de confirmación:
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_config.md" target="blank"><img src="pics/neo4j/neo4j_config/insertData.jpg" width="600" alt="insertData.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_config.md" target="blank"><img src="pics/neo4j/neo4j_config/insertData.jpg" width="1000" alt="insertData.jpg" /></a>
   <br>
 </p>
 
@@ -158,7 +158,7 @@ MATCH (n) RETURN n;
 Esto mostrará aproximadamente 300 nodos interrelacionados (limitado por la visualización):
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_config.md" target="blank"><img src="pics/neo4j/neo4j_config/nodes.jpg" width="600" alt="nodes.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_config.md" target="blank"><img src="pics/neo4j/neo4j_config/nodes.jpg" width="1000" alt="nodes.jpg" /></a>
   <br>
 </p>
 
