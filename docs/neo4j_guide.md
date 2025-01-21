@@ -1,7 +1,7 @@
 # Guía de Instalación de Neo4j Desktop
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j.md" target="blank"><img src="pics/neo4j_logo.png" width="400" alt="neo4j_logo.png" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_guide.md" target="blank"><img src="pics/logo/neo4j_logo.png" width="400" alt="neo4j_logo.png" /></a>
   <br>
 </p>
 
@@ -25,7 +25,7 @@ Neo4j Desktop es una plataforma de base de datos orientada a grafos que permite 
    - País
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j.md" target="blank"><img src="pics/neo4j/fillOutForms.jpg" width="450" alt="fillOutForms.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_guide.md" target="blank"><img src="pics/neo4j/neo4j_guide/fillOutForms.jpg" width="450" alt="fillOutForms.jpg" /></a>
   <br>
 </p>
 
@@ -35,7 +35,7 @@ Neo4j Desktop es una plataforma de base de datos orientada a grafos que permite 
 
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j.md" target="blank"><img src="pics/neo4j/keyInstallation.jpg" width="450" alt="keyInstallation.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_guide.md" target="blank"><img src="pics/neo4j/neo4j_guide/keyInstallation.jpg" width="450" alt="keyInstallation.jpg" /></a>
   <br>
 </p>
 
@@ -46,7 +46,7 @@ Neo4j Desktop es una plataforma de base de datos orientada a grafos que permite 
    - Asegúrate de tener permisos de escritura en la carpeta seleccionada
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j.md" target="blank"><img src="pics/neo4j/installationDirectory.jpg" width="450" alt="installationDirectory.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_guide.md" target="blank"><img src="pics/neo4j/neo4j_guide/installationDirectory.jpg" width="450" alt="installationDirectory.jpg" /></a>
   <br>
 </p>
 
@@ -57,7 +57,7 @@ Neo4j Desktop es una plataforma de base de datos orientada a grafos que permite 
 
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j.md" target="blank"><img src="pics/neo4j/licenseAgreement.jpg" width="450" alt="licenseAgreement.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_guide.md" target="blank"><img src="pics/neo4j/neo4j_guide/licenseAgreement.jpg" width="450" alt="licenseAgreement.jpg" /></a>
   <br>
 </p>
 
@@ -68,7 +68,7 @@ Neo4j Desktop es una plataforma de base de datos orientada a grafos que permite 
 
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j.md" target="blank"><img src="pics/neo4j/softwareRegistration.jpg" width="450" alt="softwareRegistration.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_guide.md" target="blank"><img src="pics/neo4j/neo4j_guide/softwareRegistration.jpg" width="450" alt="softwareRegistration.jpg" /></a>
   <br>
 </p>
 
@@ -78,7 +78,7 @@ Neo4j Desktop es una plataforma de base de datos orientada a grafos que permite 
     - No cierres la aplicación durante esta etapa
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j.md" target="blank"><img src="pics/neo4j/gettingReady.jpg" width="450" alt="gettingReady.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_guide.md" target="blank"><img src="pics/neo4j/neo4j_guide/gettingReady.jpg" width="450" alt="gettingReady.jpg" /></a>
   <br>
 </p>
 
@@ -86,7 +86,7 @@ Neo4j Desktop es una plataforma de base de datos orientada a grafos que permite 
 
 
 <p align="center">
-  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j.md" target="blank"><img src="pics/neo4j/mainFrame.jpg" width="450" alt="mainFrame.jpg" /></a>
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/neo4j_guide.md" target="blank"><img src="pics/neo4j/neo4j_guide/mainFrame.jpg" width="450" alt="mainFrame.jpg" /></a>
   <br>
 </p>
 
