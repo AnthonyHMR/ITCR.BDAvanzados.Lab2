@@ -1,5 +1,9 @@
 # Guía de Instalación de MongoDB en Windows 10
 
+<p align="center">
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_guide.md" target="blank"><img src="pics/logo/mongoDB_logo.png" width="400" alt="mongoDB_logo" /></a>
+</p>
+
 ## Paso 1: Descargar MongoDB
 1. **Accede a la página oficial** de MongoDB: [Descargar MongoDB](https://www.mongodb.com/try/download/community).
 2. **Selecciona las opciones de descarga**:
