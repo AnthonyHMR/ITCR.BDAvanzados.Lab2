@@ -1,5 +1,11 @@
+# -*- coding: utf-8 -*-
 import time
 import csv
+import sys
+import io
+
+# Configurar la codificación de la salida estándar
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 import pymongo
 from neo4j import GraphDatabase
 import statistics
