@@ -3,6 +3,10 @@ import time
 import csv
 import sys
 import io
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+from pathlib import Path
 
 # Configurar la codificación de la salida estándar
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -153,8 +157,14 @@ class DatabaseTester:
             for operation, times in results.items()
         }
 
-    def run_performance_test(self, csv_file_path: str):
-        """Ejecutar pruebas de rendimiento completas"""
+    def run_performance_test(self, csv_file_path: str, generate_graphs: bool = True):
+        """
+        Ejecutar pruebas de rendimiento completas y generar visualizaciones
+        
+        Args:
+            csv_file_path (str): Ruta al archivo CSV con los datos
+            generate_graphs (bool): Si es True, genera visualizaciones de los resultados
+        """
         try:
             print("Cargando datos del CSV...")
             data = self.load_csv_data(csv_file_path)
@@ -165,13 +175,98 @@ class DatabaseTester:
             print("Iniciando pruebas de Neo4j...")
             neo4j_results = self.test_neo4j_operations(data)
             
-            return {
+            results = {
                 "mongodb": mongo_results,
                 "neo4j": neo4j_results
             }
+            
+            if generate_graphs:
+                print("\nGenerando visualizaciones y reportes...")
+                self.generate_visualizations(results)
+                print("✓ Visualizaciones guardadas en el directorio 'resultados'")
+            
+            return results
+            
         except Exception as e:
             print(f"Error durante la ejecución de las pruebas: {str(e)}")
             raise
+
+    def generate_visualizations(self, results, output_dir="testing/resultados"):
+        """
+        Genera visualizaciones comparativas de los resultados
+        
+        Args:
+            results (dict): Diccionario con los resultados de las pruebas
+            output_dir (str): Directorio donde se guardarán las visualizaciones
+        """
+        # Crear directorio si no existe
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        
+        # Preparar datos para visualización
+        data = []
+        for db in ['mongodb', 'neo4j']:
+            for operation, metrics in results[db].items():
+                data.append({
+                    'Database': db.upper(),
+                    'Operation': operation.upper(),
+                    'Average Time': metrics['avg'],
+                    'Min Time': metrics['min'],
+                    'Max Time': metrics['max']
+                })
+        
+        df = pd.DataFrame(data)
+        
+        # 1. Gráfico de barras comparativo
+        plt.figure(figsize=(12, 6))
+        sns.barplot(x='Operation', y='Average Time', hue='Database', data=df)
+        plt.title('Comparación de Tiempos de Operación entre MongoDB y Neo4j')
+        plt.ylabel('Tiempo (segundos)')
+        plt.yscale('log')  # Escala logarítmica para mejor visualización
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        plt.savefig(f'{output_dir}/comparacion_tiempos.png')
+        plt.close()
+        
+        # 2. Tabla de resultados detallados
+        tabla_comparativa = pd.pivot_table(
+            df,
+            values=['Average Time', 'Min Time', 'Max Time'],
+            index=['Operation'],
+            columns=['Database'],
+            aggfunc='first'
+        )
+        
+        # Formatear los números en la tabla
+        tabla_formateada = tabla_comparativa.round(4)
+        tabla_formateada.to_csv(f'{output_dir}/resultados_detallados.csv')
+        
+        # 3. Gráfico de calor (heatmap)
+        plt.figure(figsize=(10, 6))
+        pivot_avg = df.pivot(index='Operation', columns='Database', values='Average Time')
+        sns.heatmap(pivot_avg, annot=True, fmt='.4f', cmap='YlOrRd')
+        plt.title('Heatmap de Tiempos Promedio por Operación')
+        plt.tight_layout()
+        plt.savefig(f'{output_dir}/heatmap_tiempos.png')
+        plt.close()
+        
+        # 4. Gráfico de violín para distribución de tiempos
+        plt.figure(figsize=(12, 6))
+        df_melt = df.melt(id_vars=['Database', 'Operation'], 
+                         value_vars=['Average Time', 'Min Time', 'Max Time'],
+                         var_name='Metric', value_name='Time')
+        sns.violinplot(x='Operation', y='Time', hue='Database', data=df_melt)
+        plt.title('Distribución de Tiempos por Operación')
+        plt.ylabel('Tiempo (segundos)')
+        plt.yscale('log')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        plt.savefig(f'{output_dir}/distribucion_tiempos.png')
+        plt.close()
+
+        return {
+            'dataframe': df,
+            'tabla_comparativa': tabla_comparativa
+        }
 
     def close_connections(self):
         """Cerrar conexiones a las bases de datos"""
