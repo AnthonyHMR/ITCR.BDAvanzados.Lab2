@@ -1,43 +1,69 @@
 # -*- coding: utf-8 -*-
-import time
-import csv
-import sys
-import io
-import matplotlib.pyplot as plt
-import pandas as pd
-import seaborn as sns
-from pathlib import Path
+# Importación de librerías necesarias
+import time  # Para medir tiempos de ejecución
+import csv   # Para manejo de archivos CSV
+import sys   # Para configuración del sistema
+import io    # Para manejo de entrada/salida
+import matplotlib.pyplot as plt  # Para crear gráficos
+import pandas as pd             # Para análisis de datos
+import seaborn as sns          # Para visualizaciones mejoradas
+from pathlib import Path       # Para manejo de rutas de archivos
 
-# Configurar la codificación de la salida estándar
+# Configuración de la codificación de salida para manejar caracteres especiales
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-import pymongo
-from neo4j import GraphDatabase
-import statistics
-from typing import List, Dict, Any
-from bson import ObjectId
+
+# Importación de las librerías para bases de datos
+import pymongo  # Cliente de MongoDB
+from neo4j import GraphDatabase  # Cliente de Neo4j
+import statistics  # Para cálculos estadísticos
+from typing import List, Dict, Any  # Para type hints
+from bson import ObjectId  # Para manejar IDs de MongoDB
 
 class DatabaseTester:
+    """
+    Clase principal para realizar pruebas de rendimiento entre MongoDB y Neo4j.
+    Permite comparar operaciones CRUD básicas entre ambas bases de datos.
+    """
     def __init__(self):
-        # MongoDB connection
+        """
+        Constructor que inicializa las conexiones a ambas bases de datos.
+        MongoDB se conecta al puerto 27017 y Neo4j al puerto 7687.
+        """
+        # Conexión a MongoDB
         self.mongo_client = pymongo.MongoClient("mongodb://localhost:27017/")
         self.mongo_db = self.mongo_client["performance_test"]
         self.mongo_collection = self.mongo_db["test_collection"]
         
-        # Neo4j connection
-        self.neo4j_driver = GraphDatabase.driver("bolt://localhost:7687", 
-                                               auth=("neo4j", "mango2016"))
+        # Conexión a Neo4j
+        self.neo4j_driver = GraphDatabase.driver(
+            "bolt://localhost:7687", 
+            auth=("neo4j", "mango2016")
+        )
 
     def load_csv_data(self, file_path: str) -> List[Dict[str, Any]]:
-        """Load data from CSV file"""
+        """
+        Carga datos desde un archivo CSV y los prepara para su uso en las bases de datos.
+        
+        Args:
+            file_path (str): Ruta al archivo CSV
+        
+        Returns:
+            List[Dict[str, Any]]: Lista de diccionarios con los datos del CSV
+        
+        Raises:
+            ValueError: Si no se puede leer el archivo con ninguna codificación
+        """
+        # Lista de codificaciones a probar
         encodings = ['utf-8', 'latin-1', 'iso-8859-1', 'cp1252']
         
+        # Intenta leer el archivo con diferentes codificaciones
         for encoding in encodings:
             try:
                 data = []
                 with open(file_path, 'r', encoding=encoding) as file:
                     reader = csv.DictReader(file)
                     for row in reader:
-                        # Add ObjectId for MongoDB
+                        # Añade un ID único de MongoDB a cada fila
                         row['_id'] = ObjectId()
                         data.append(row)
                 return data
@@ -47,14 +73,22 @@ class DatabaseTester:
         raise ValueError(f"No se pudo leer el archivo con ninguna de las codificaciones: {encodings}")
 
     def prepare_neo4j_data(self, data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Convert MongoDB data format to Neo4j compatible format"""
+        """
+        Convierte los datos del formato MongoDB al formato compatible con Neo4j.
+        Principalmente convierte los ObjectId a strings.
+        
+        Args:
+            data: Lista de diccionarios con datos de MongoDB
+        
+        Returns:
+            Lista de diccionarios con datos compatibles con Neo4j
+        """
         neo4j_data = []
         for item in data:
-            # Create a new dict with converted data
             neo4j_item = {}
             for key, value in item.items():
+                # Convierte ObjectId a string para Neo4j
                 if isinstance(value, ObjectId):
-                    # Convert ObjectId to string for Neo4j
                     neo4j_item[key] = str(value)
                 else:
                     neo4j_item[key] = value
@@ -62,7 +96,16 @@ class DatabaseTester:
         return neo4j_data
 
     def test_mongodb_operations(self, data: List[Dict[str, Any]]):
-        """Test MongoDB CRUD operations"""
+        """
+        Realiza pruebas de operaciones CRUD en MongoDB y mide los tiempos.
+        
+        Args:
+            data: Lista de documentos para insertar
+            
+        Returns:
+            Dict con estadísticas de tiempo para cada operación
+        """
+        # Inicializa diccionario para almacenar resultados
         results = {
             "create": [],
             "read": [],
@@ -70,13 +113,13 @@ class DatabaseTester:
             "delete": []
         }
 
-        # CREATE - Bulk Insert
+        # CREATE - Inserción masiva
         start_time = time.time()
         self.mongo_collection.insert_many(data)
         results["create"].append(time.time() - start_time)
 
-        # READ - Query con diferentes filtros
-        test_id = data[0]["_id"]  # Guardamos el ID para las pruebas
+        # READ - 100 consultas de lectura
+        test_id = data[0]["_id"]
         for _ in range(100):
             start_time = time.time()
             self.mongo_collection.find_one({"_id": test_id})
@@ -95,6 +138,7 @@ class DatabaseTester:
         self.mongo_collection.delete_many({})
         results["delete"].append(time.time() - start_time)
 
+        # Calcula estadísticas para cada operación
         return {
             operation: {
                 "avg": statistics.mean(times),
@@ -105,7 +149,16 @@ class DatabaseTester:
         }
 
     def test_neo4j_operations(self, data: List[Dict[str, Any]]):
-        """Test Neo4j CRUD operations"""
+        """
+        Realiza pruebas de operaciones CRUD en Neo4j y mide los tiempos.
+        Similar a test_mongodb_operations pero adaptado para Neo4j.
+        
+        Args:
+            data: Lista de documentos para insertar
+            
+        Returns:
+            Dict con estadísticas de tiempo para cada operación
+        """
         results = {
             "create": [],
             "read": [],
@@ -113,12 +166,12 @@ class DatabaseTester:
             "delete": []
         }
 
-        # Convertir datos para Neo4j
+        # Prepara datos para Neo4j
         neo4j_data = self.prepare_neo4j_data(data)
-        test_id = str(data[0]["_id"])  # Convertimos el ObjectId a string para las pruebas
+        test_id = str(data[0]["_id"])
 
         with self.neo4j_driver.session() as session:
-            # CREATE - Bulk Insert
+            # CREATE - Inserción uno por uno
             start_time = time.time()
             for item in neo4j_data:
                 session.run(
@@ -127,7 +180,7 @@ class DatabaseTester:
                 )
             results["create"].append(time.time() - start_time)
 
-            # READ - Queries
+            # READ - 100 consultas de lectura
             for _ in range(100):
                 start_time = time.time()
                 session.run(
@@ -159,11 +212,14 @@ class DatabaseTester:
 
     def run_performance_test(self, csv_file_path: str, generate_graphs: bool = True):
         """
-        Ejecutar pruebas de rendimiento completas y generar visualizaciones
+        Ejecuta el conjunto completo de pruebas de rendimiento.
         
         Args:
-            csv_file_path (str): Ruta al archivo CSV con los datos
-            generate_graphs (bool): Si es True, genera visualizaciones de los resultados
+            csv_file_path: Ruta al archivo CSV con datos de prueba
+            generate_graphs: Si se deben generar visualizaciones
+            
+        Returns:
+            Dict con resultados de ambas bases de datos
         """
         try:
             print("Cargando datos del CSV...")
@@ -193,16 +249,16 @@ class DatabaseTester:
 
     def generate_visualizations(self, results, output_dir="testing/resultados"):
         """
-        Genera visualizaciones comparativas de los resultados
+        Genera visualizaciones comparativas de los resultados de las pruebas.
         
         Args:
-            results (dict): Diccionario con los resultados de las pruebas
-            output_dir (str): Directorio donde se guardarán las visualizaciones
+            results: Diccionario con resultados de las pruebas
+            output_dir: Directorio donde guardar las visualizaciones
         """
-        # Crear directorio si no existe
+        # Crea directorio si no existe
         Path(output_dir).mkdir(parents=True, exist_ok=True)
         
-        # Preparar datos para visualización
+        # Prepara datos para visualización
         data = []
         for db in ['mongodb', 'neo4j']:
             for operation, metrics in results[db].items():
@@ -221,7 +277,7 @@ class DatabaseTester:
         sns.barplot(x='Operation', y='Average Time', hue='Database', data=df)
         plt.title('Comparación de Tiempos de Operación entre MongoDB y Neo4j')
         plt.ylabel('Tiempo (segundos)')
-        plt.yscale('log')  # Escala logarítmica para mejor visualización
+        plt.yscale('log')
         plt.xticks(rotation=45)
         plt.tight_layout()
         plt.savefig(f'{output_dir}/comparacion_tiempos.png')
@@ -236,7 +292,7 @@ class DatabaseTester:
             aggfunc='first'
         )
         
-        # Formatear los números en la tabla
+        # Formatea y guarda la tabla
         tabla_formateada = tabla_comparativa.round(4)
         tabla_formateada.to_csv(f'{output_dir}/resultados_detallados.csv')
         
@@ -251,9 +307,12 @@ class DatabaseTester:
         
         # 4. Gráfico de violín para distribución de tiempos
         plt.figure(figsize=(12, 6))
-        df_melt = df.melt(id_vars=['Database', 'Operation'], 
-                         value_vars=['Average Time', 'Min Time', 'Max Time'],
-                         var_name='Metric', value_name='Time')
+        df_melt = df.melt(
+            id_vars=['Database', 'Operation'],
+            value_vars=['Average Time', 'Min Time', 'Max Time'],
+            var_name='Metric',
+            value_name='Time'
+        )
         sns.violinplot(x='Operation', y='Time', hue='Database', data=df_melt)
         plt.title('Distribución de Tiempos por Operación')
         plt.ylabel('Tiempo (segundos)')
@@ -269,32 +328,39 @@ class DatabaseTester:
         }
 
     def close_connections(self):
-        """Cerrar conexiones a las bases de datos"""
+        """
+        Cierra las conexiones a ambas bases de datos.
+        Importante llamar a este método al finalizar las pruebas.
+        """
         self.mongo_client.close()
         self.neo4j_driver.close()
 
-# Ejemplo de uso
+# Bloque principal de ejecución
 if __name__ == "__main__":
     try:
+        # Crea instancia del tester
         tester = DatabaseTester()
+        # Ejecuta las pruebas con el archivo CSV especificado
         results = tester.run_performance_test("data/netflix_disney.csv")
         
-        print("\nResultados de las pruebas:".encode('utf-8').decode('utf-8'))
+        # Imprime resultados
+        print("\nResultados de las pruebas:")
         print("\nMongoDB:")
         for operation, metrics in results["mongodb"].items():
             print(f"{operation.upper()}:")
-            print(f"  Promedio: {metrics['avg']:.4f} segundos".encode('utf-8').decode('utf-8'))
-            print(f"  Mínimo: {metrics['min']:.4f} segundos".encode('utf-8').decode('utf-8'))
-            print(f"  Máximo: {metrics['max']:.4f} segundos".encode('utf-8').decode('utf-8'))
+            print(f"  Promedio: {metrics['avg']:.4f} segundos")
+            print(f"  Mínimo: {metrics['min']:.4f} segundos")
+            print(f"  Máximo: {metrics['max']:.4f} segundos")
         
         print("\nNeo4j:")
         for operation, metrics in results["neo4j"].items():
             print(f"{operation.upper()}:")
-            print(f"  Promedio: {metrics['avg']:.4f} segundos".encode('utf-8').decode('utf-8'))
-            print(f"  Mínimo: {metrics['min']:.4f} segundos".encode('utf-8').decode('utf-8'))
-            print(f"  Máximo: {metrics['max']:.4f} segundos".encode('utf-8').decode('utf-8'))
+            print(f"  Promedio: {metrics['avg']:.4f} segundos")
+            print(f"  Mínimo: {metrics['min']:.4f} segundos")
+            print(f"  Máximo: {metrics['max']:.4f} segundos")
     
     except Exception as e:
         print(f"Error en la ejecución del programa: {str(e)}")
     finally:
+        # Asegura que las conexiones se cierren incluso si hay errores
         tester.close_connections()
