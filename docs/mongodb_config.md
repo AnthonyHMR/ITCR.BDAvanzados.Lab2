@@ -43,7 +43,7 @@ Deberías ver un mensaje indicando que el servidor está escuchando en el puerto
 3. Haz clic en `Save & Connect`.
 ---
 
-### 2. Crear una Nueva Base de Datos (si es necesario)
+### 2. Crear una Nueva Base de Datos
 
 1. En la conexión creada anteriormente, haz clic en el botón `Create Database`.
 2. Ingresa un nombre para la base de datos (por ejemplo, `MovieDB`) y una colección inicial (por ejemplo, `Entertainment`).
