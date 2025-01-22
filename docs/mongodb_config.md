@@ -26,7 +26,7 @@
 Deberías ver un mensaje indicando que el servidor está escuchando en el puerto 27017 (por defecto).
 
 <p align="center">
-  <img src="pics/mongodb/mongodb_config/mongosh.jpg" width="500" alt="Mongosh" />
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_config.md" target="blank"><img src="pics/mongodb/mongodb_config/mongosh.jpg" width="500" alt="Mongosh" /></a>
 </p>
 
 ---
@@ -37,7 +37,7 @@ Deberías ver un mensaje indicando que el servidor está escuchando en el puerto
 2. Crea una nueva conexión para conectarte al servidor local utilizando la URI de conexión correspondiente y dale un nombre (por ejemplo, `Laboratorio_2`).
 
 <p align="center">
-  <img src="pics/mongodb/mongodb_config/mongodb_compass_connection.jpg" width="500" alt="MongoDB Compass" />
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_config.md" target="blank"><img src="pics/mongodb/mongodb_config/mongodb_compass_connection.jpg" width="500" alt="MongoDB Compass" /></a>
 </p>
 
 3. Haz clic en `Save & Connect`.
@@ -50,7 +50,7 @@ Deberías ver un mensaje indicando que el servidor está escuchando en el puerto
 3. Haz clic en `Create Database`.
 
 <p align="center">
-  <img src="pics/mongodb/mongodb_config/create_database.jpg" width="500" alt="Crear Base de Datos" />
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_config.md" target="blank"><img src="pics/mongodb/mongodb_config/create_database.jpg" width="500" alt="Crear Base de Datos" /></a>
 </p>
 
 ---
@@ -61,7 +61,7 @@ Deberías ver un mensaje indicando que el servidor está escuchando en el puerto
 2. Haz clic en el botón `Add Data` y selecciona la opción `Import JSON or CSV file`.
 
 <p align="center">
-  <img src="pics/mongodb/mongodb_config/import_data.jpg" width="500" alt="Importar Datos" />
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_config.md" target="blank"><img src="pics/mongodb/mongodb_config/import_data.jpg" width="500" alt="Importar Datos" /></a>
 </p>
 
 ---
@@ -72,7 +72,7 @@ Deberías ver un mensaje indicando que el servidor está escuchando en el puerto
 2. Selecciona el archivo y haz clic en `Import`.
 
 <p align="center">
-  <img src="pics/mongodb/mongodb_config/select_csv_file.jpg" width="500" alt="Seleccionar Archivo CSV" />
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_config.md" target="blank"><img src="pics/mongodb/mongodb_config/select_csv_file.jpg" width="500" alt="Seleccionar Archivo CSV" /></a>
 </p>
 
 ---
@@ -83,7 +83,7 @@ Deberías ver un mensaje indicando que el servidor está escuchando en el puerto
 2. Ve a la colección y utiliza el panel de exploración para revisar los datos importados.
 
 <p align="center">
-  <img src="pics/mongodb/mongodb_config/import_success.jpg" width="500" alt="Importación Exitosa" />
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_config.md" target="blank"><img src="pics/mongodb/mongodb_config/import_success.jpg" width="500" alt="Importación Exitosa" /></a>
 </p>
 
 ---
@@ -100,7 +100,7 @@ db.Entertainment.find().pretty();
 Esto mostrará los documentos importados de forma estructurada.
 
 <p align="center">
-  <img src="pics/mongodb/mongodb_config/data_verified.jpg" width="500" alt="Datos Verificados" />
+  <a href="https://github.com/AnthonyHMR/ITCR.BDAvanzados.Lab2/blob/main/docs/mongodb_config.md" target="blank"><img src="pics/mongodb/mongodb_config/data_verified.jpg" width="500" alt="Datos Verificados" /></a>
 </p>
 
 ---
