@@ -1,6 +1,6 @@
 # MovieDB-NoSQL
 
-Proyecto que compara el rendimiento de MongoDB y Neo4j en un sistema de gestión de películas y series. Evalúa operaciones CRUD usando datos de IMDb y Netflix.
+Proyecto que compara el rendimiento de MongoDB y Neo4j en un sistema de gestión de películas y series. Evalúa operaciones CRUD usando datos provenientes de [Kaggle](https://www.kaggle.com/).
 
 ## Índice
 - [Escenario](#escenario)
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 3. Instalar Bases de Datos. Siga las guías detalladas de instalación para cada sistema:
 
 - [MongoDB](docs/mongodb_guide.md) 
-- [Neo4j](docs/neo4j_guide.md).
+- [Neo4j](docs/neo4j_guide.md)
 
 4. Configurar bases de datos:
 
