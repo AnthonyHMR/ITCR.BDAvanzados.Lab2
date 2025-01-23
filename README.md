@@ -5,7 +5,7 @@ Proyecto que compara el rendimiento de MongoDB y Neo4j en un sistema de gestión
 ## Índice
 - [Escenario](#escenario)
 - [Instalación](#instalación)
-- [Pruebas](#pruebas) 
+- [Ejecución de Pruebas](#ejecución-de-pruebas) 
 - [Desarrolladores](#desarrolladores)
 
 ## Escenario
@@ -27,19 +27,24 @@ cd ITCR.BDAvanzados.Lab2
 pip install -r requirements.txt
 ```
 
-3. Configurar bases de datos:
+3. Instalar Bases de Datos. Siga las guías detalladas de instalación para cada sistema:
+
+- [MongoDB](docs/mongodb_guide.md) 
+- [Neo4j](docs/neo4j_guide.md).
+
+4. Configurar bases de datos:
 
 <div align="center">
-  <a href="docs/mongodb_guide.md">
+  <a href="docs/mongodb_config.md">
     <img src="docs/pics/logo/mongoDB_logo.png" width="450" alt="MongoDB Logo">
     <br>
-    <em>Guía de instalación MongoDB</em>
+    <em>Guía de Configuración de MongoDB</em>
   </a>
 <br><br>
-  <a href="docs/neo4j_guide.md">
+  <a href="docs/neo4j_config.md">
     <img src="docs/pics/logo/neo4j_logo.png" width="400" alt="Neo4j Logo">
     <br>
-    <em>Guía de instalación Neo4j</em>
+    <em>Guía de Configuracion de Neo4j</em>
   </a>
 </div>
 
